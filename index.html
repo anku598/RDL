@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html class="pageAnimation">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rancon Website</title>
+  <!--   <link rel="stylesheet" href="css/animate.css"> -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/homepage-nav.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://unpkg.com/vue@2.5.13/dist/vue.js"></script>
+</head>
+<body>
+  <header id="rootHeader">
+    <div id="divZoom"></div>
+    <header-nav></header-nav>
+    <a href="#section-two">
+      <span class="scroll-page-icon">
+        <span><i class="fa fa-angle-down scroll-menu-down" aria-hidden="true"></i></span>
+      </span>
+    </a>
+  </header>
+
+  <section class="section-two" id="section-two" style="padding-bottom: 50px;">
+    <div class="columns">
+      <div class="column has-text-left">
+        <div class="columns ">
+          <div class="column ">
+            <div class="section-two-content has-text-centered">
+              <h2  class="is-size-3">New Wave Of Perfect Livining</h2>
+              <p>The Final phase is underway, do not miss the chance to buy yourself a brand new home in the final stages of the Dock project</p>
+              <a class="button is-medium">Large Button</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="column bg" id="sectionTwoImg1"></div>
+    </div>
+
+
+    <div class="columns custom-columns">
+
+      <div class="column bg2" id="sectionTwoImg2"></div>
+      <div class="column has-text-left">
+        <div class="columns ">
+          <div class="column ">
+            <div class="section-two-content has-text-centered">
+              <h2  class="is-size-3">New Wave Of Perfect Livining</h2>
+              <p>The Final phase is underway, do not miss the chance to buy yourself a brand new home in the final stages of the Dock project</p>
+              <a class="button is-medium">Large Button</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="js/snap.svg-min.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/main.js"></script>
+
+  <script>
+
+  function ZoomNPan(elm) {
+    var that = this;
+
+    /** minimum zoom allowed (in percent) */
+    this.minScale = 60;
+    /** maximun zoom allowed (in percent) */
+    this.maxScale = 300;
+    this.invertOnMac = false;
+    
+    // if(elm.hasAttribute('data-zoom-and-pan')) return console.error('ZoomNPan This element is already initialized');
+    // elm.setAttribute('data-zoom-and-pan', '');
+
+    var currentScale = 100;
+    elm.addEventListener('mousemove', pan);
+
+    function pan(e) {
+      var panX, panY, pad = 20;
+      if (currentScale >= 100) {
+        panX = (e.offsetX - pad) / (e.target.clientWidth - (pad * 2));
+        panY = (e.offsetY - pad) / (e.target.clientHeight - (pad * 2));
+      }
+      else {
+        panX = 0.5;
+        panY = 0.5;
+      }
+      elm.style.backgroundPositionX = (panX * 100) + '%';
+      elm.style.backgroundPositionY = (panY * 100) + '%';
+    }
+  }
+  var p;
+  function enable(){
+    p = new ZoomNPan(divZoom);
+    p.minScale = 75;
+  }
+  enable();
+
+  /*** Scroll Image Trannsition Code Here ******/
+
+  var img = document.getElementById("sectionTwoImg1");
+  var img2 = document.getElementById("sectionTwoImg2");
+
+  window.onscroll = function() {
+    var bodyHeight  = parseInt(getComputedStyle(document.body).height, 10);
+    var scrollLimit = bodyHeight - window.innerHeight;
+    var scrollTop   = document.body.scrollTop;
+    var scrollPCT   = (scrollTop / (scrollLimit/100)) / 100;
+
+    var scrollPercentage = (window.scrollY - window.innerHeight) / 10;
+    var scrollPercentage2 = (window.scrollY - window.innerHeight) / 10;
+    img.style.backgroundPosition = `${scrollPercentage}% 0%`;
+    img2.style.backgroundPosition = `${-scrollPercentage2}% 0%`;
+  }
+  </script>
+</body>
+</html>

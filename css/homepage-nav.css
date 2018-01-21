@@ -1,0 +1,30 @@
+.animatedNav{
+      color: #fff!important;
+      background: transparent;
+    }
+
+    .navbar{
+    border-top: 0.5px solid hsla(0,0%,100%,0.3)!important;
+    border-bottom: 0.5px solid hsla(0,0%,100%,0.3)!important;
+}
+
+
+.navbar-brand svg:hover{
+        background-color: #fff!important;
+      }
+.navbar-brand svg{
+  background: #fff;
+}
+
+.animatedNav:before,.animatedNav:after{
+        background: #fff!important;
+      }
+
+  .animatedNav:hover:after{
+        background: #C78C59!important;
+       
+}
+
+/*.animatedNav:last-child:after{
+        transform: skew(0deg)!important;
+      }*/

@@ -1,0 +1,554 @@
+// Custom Font goes Here
+
+@font-face {
+	font-family: 'futurapt-light';
+
+	src: url('../fonts/FuturaPT-Light.woff') format('woff'),
+	url('../fonts/FuturaPT-Light.ttf') format('truetype');    
+	font-weight: 100;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'futurapt-bold';
+
+	src: url('../fonts/FuturaPT-Bold.woff') format('woff'),
+	url('../fonts/FuturaPT-Bold.ttf') format('truetype');    
+	font-weight: 600;
+	font-style: normal;
+}
+
+
+// Custom Variables
+$body-margin: 20px;
+$navbar-dropdown-offset: 1px;
+$body-font-family: 'futurapt-light';
+$futurapt_black: 'futurept-black';
+
+
+$theedge-day:url('../img/theedge-day.jpg');
+$theedge-night: url('../img/theedge-night.jpg');
+
+$selector-image0: url('../img/selector-image/selector-0.jpg');
+$selector-image1: url('../img/selector-image/selector-1.jpg');
+$selector-image2: url('../img/selector-image/selector-2.jpg');
+$selector-image3: url('../img/selector-image/selector-3.jpg');
+
+
+$orange:  #A27040;
+$fuschia: #E0B779;
+$size:    50px;
+$border:  4px;
+
+
+body{
+	margin: $body-margin;
+	font-family: $body-font-family;
+}
+
+.is-boxed{
+	top: calc(100% + (#{$navbar-dropdown-offset}))!important;
+	margin-left: -11.5%;
+}
+
+/**** Header Style Here ****/
+
+.scroll-page-icon {
+    width: 60px;
+    height: 60px;
+    display: block;
+    line-height: 0;
+    position: absolute;
+    bottom: 85px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    transition-property: color, border-color;
+    transition-timing-function: ease-out;
+    transition-duration: 0.25s;
+    cursor: pointer;
+    text-align: center;
+}
+
+.scroll-page-icon:after{
+	content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-radius: 100%;
+  border: 2px solid transparent;
+  background: transparent;
+}
+
+.scroll-page-icon:hover:after{
+	animation: animate 1s ease-in-out forwards;
+}
+
+@keyframes  animate{
+
+	0%{
+		width: 0;
+  		height: 0;
+  		border: 1px solid #fff;
+	}
+
+	50%{
+		display: block;
+	}
+
+}
+
+.scroll-page-icon:hover {
+    /* Hover settings for the scroll icon */
+    color: #ff1744;
+    border-color: #ff1744;
+}
+
+.scroll-page-icon .scroll-menu-down {
+    line-height: 0;
+    position: relative;
+    animation-name: scrollDown;
+    animation-duration: 1.8s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    font-size: 27px;
+    color: #fff;
+}
+
+@keyframes scrollDown {
+    0% {
+      opacity: 0;
+      top: 0%;
+  }
+  50% {
+    opacity: 1;
+      top: 50%;
+  }
+    100% {
+      opacity: 0;
+      top: 100%;
+  }
+}
+
+header{
+	position: relative;
+	.navbar{
+		position: absolute;
+		top: -1px;
+		width: 100%;
+		background: transparent;
+		border-top: 0.5px solid hsla(0,0%,0%,0.3);
+		border-bottom: 0.5px solid hsla(0,0%,0%,0.3);
+		text-transform: uppercase;
+		font-size: 15px;
+		letter-spacing: 4px;
+
+		.navbar-brand svg {
+			position: absolute;
+    		padding-right: 22px;
+    		max-width: 13vw;
+    		padding-bottom: 14px;
+    		min-width: 150px;
+		}
+		.navbar-brand svg:hover{
+			background-color: transparent;
+		}
+		.animatedNav{
+			color: #000;
+			background: transparent;
+		}
+
+		.animatedNav:before,.animatedNav:after{
+			position: absolute;
+			opacity: 0.3;
+			height: 100%;
+			width: 1px;
+			content: '';
+			background: #000;
+			transition: all 0.3s;
+			transform: skew(-30deg);
+
+		}
+
+		.animatedNav:last-child:after{
+			transform: skew(0deg);
+			width: 0px;
+		}
+
+		.animatedNav:before{
+			top: 0;
+			left: 0;
+		}
+
+		.animatedNav:after{
+			right: 0px;
+			bottom: 0px;
+		}
+
+		.animatedNav:hover:after{
+			opacity: 0.7;
+			height: 2px;
+			width: 100%;
+			background: #C78C59;
+			position: absolute;
+			right: 16.5px;
+		}
+
+		.animatedNav:last-child:hover:after{
+			right: 0px;
+			width: 110%;
+		}
+
+		.navbar-dropdown{
+			background: transparent!important;
+			border: 0px solid #fff!important;
+		}
+	}
+}
+
+#triangle{
+	d:path("M574.2,261.4H294.4L434.3,3.8L574.2,261.4z M356.6,224.4H512L434.3,81.2L356.6,224.4z");
+		// animation: swing ease-in-out 0.5s infinite alternate;
+  //   transform-origin: center -20px;
+
+}
+
+@keyframes swing {
+	0% { transform: rotate(10deg); }
+	100% { transform: rotate(-10deg); }
+}
+
+.pageAnimation{
+	animation: scaleUp .8s ease both;
+}
+
+@keyframes scaleUp {
+	from { opacity: 0; transform: scaleX(3); }
+}
+
+.dropdown-items {
+	position: absolute;
+	padding: 0;
+	a {
+		background: rgba(255, 255, 255, 0.9);
+		color: black;
+		&:hover {
+			border-radius: 0;
+			background: #222222;
+		}
+		&:last-child {
+			border-radius: 0 0 3px 3px;
+		}
+	}
+}
+	// TRIGGER
+	.dropdown-items a {
+        // display: none;
+    }
+    a:hover .dropdown-items {
+
+    	a {
+    		display: block;
+    	}
+    }
+    // DROPDOWN 1:
+    .dropdown-1:hover .dropdown-items a {
+    	opacity: 0;
+    	@for $i from 1 through 8 {
+    		&:nth-child(#{$i}) {
+    			animation: {
+    				name: dropdown-1;
+    				duration: 300ms + (50ms * ($i - 1));
+    				delay: ($i - 1) * 50ms;
+    				timing-function: ease-in-out;
+    				fill-mode: forwards;
+    			}
+    		}
+    	}
+    }
+
+    @keyframes dropdown-1 {
+    	0% {
+    		opacity: 0;
+    		transform: rotateY(-90deg) translateY(30px);
+    	}
+    	100% {
+    		opacity: 1;
+    		transform: rotateY(0deg) translateY(0);
+    	}
+    }
+
+
+    #divZoom {
+    	height: 96vh;
+    	background-repeat: no-repeat;
+    	background-size: cover;
+    	background-position: 50% 50%;
+
+    	-webkit-animation-name: background;
+    	-webkit-animation-duration: 10s;
+    	-webkit-animation-direction: alternate;
+    	-webkit-animation-timing-function: linear;
+    	-webkit-animation-iteration-count: infinite;
+
+    	-moz-animation-name: background;
+    	-moz-animation-duration: 10s;
+    	-moz-animation-direction: alternate;
+    	-moz-animation-timing-function: linear;
+    	-moz-animation-iteration-count: infinite;
+    }
+
+
+
+    @-webkit-keyframes background {
+    	0% {
+    		background-image: $theedge-day;
+    	}
+		/*40% {
+			background-image: url('theedge-dusk.jpg');
+			}*/
+			100% {
+				background-image:$theedge-night ;
+			}
+		}
+
+		.navbar-brand, .navbar-tabs {
+			min-height: 4rem;
+		}
+		.navbar-item img {
+			height: 2.5rem!important;
+		}
+
+
+		.scroll {
+			position: absolute;
+			left: 50%; bottom: 0;
+			height: 0; width: 0;
+
+			border-left: $size solid transparent;
+			border-right: $size solid transparent;
+			border-bottom: $size/1.125 solid white;
+			transform: translateX(-50%);
+
+			&:before {
+				content: '';
+				position: absolute;
+				top: $size/2; left: 50%;
+				height: $size/4.5;
+				width: $size/3;
+				margin-top: -$size/9/2;
+				margin-left: -$size/3/2;
+
+				background: linear-gradient(#A27040, #E0B779);    
+				clip-path: polygon(15% 0, 50% 60%, 85% 0, 100% 20%, 50% 100%, 0 20%);
+
+				animation: bounce 2s ease infinite;
+			}
+		}
+
+		@keyframes bounce {
+			50% {
+				transform:
+				scale(.75)
+				translateY(-50%);
+			}
+			100% {
+				transform: translateY(0);
+			}
+		}
+
+/**** End Header Styles ****/
+
+
+/*** Second Section Styles ***/
+
+.section-two{
+	margin-top: 3%;
+	overflow: hidden;
+}
+
+.section-two-content{
+	margin-top: 20%;
+	padding-left: 3rem;
+}
+
+.bg{
+	background: url("../img/1.jpg") no-repeat;
+	background-position: 50%;
+	overflow: hidden;
+	height: 59vh;
+
+}
+
+		// @-webkit-keyframes bg-slide {
+		// 	from { transform: translateX(0); }
+		// 	to { transform: translateX(-75%); }
+		// }
+
+		.bg2{
+			background: url("../img/2.jpg")no-repeat;
+			background-position: -50%;
+			height: 59vh;
+
+		}
+
+		// @-webkit-keyframes bg-slide {
+		// 	from { transform: translateY(0); }
+		// 	to { transform: translateY(-75%); }
+		// }
+
+		@media(max-width: 768px) {
+			.custom-columns {
+				flex-direction: column-reverse;
+				display: flex;
+			}
+			.bg2 {
+				flex-basis: none;
+			}
+
+			.section-two-content{
+				margin-top: 0;
+			}
+		}
+
+/*** End Second Section Styles***/
+
+
+/**** Residence Page Style ****/
+
+.section-three{
+	display: flex;
+	overflow: hidden;
+	margin: 0px!important;
+}
+
+.image-0{
+	background: $selector-image0 no-repeat;
+	height: 92.4vmin;
+	background-position: top center;
+	transition: all .5s ease-out;
+	background-position: top 80%;
+
+}
+.image-1{
+	background: $selector-image1 no-repeat;
+	height: 92.4vmin;
+	background-position: top center;
+	transition: all .5s ease-out;
+}
+.image-2{
+	background: $selector-image2 no-repeat;
+	height: 92.4vmin;
+	background-position: top center;
+	transition: all .5s ease-out;
+}
+.image-3{
+	background: $selector-image3 no-repeat;
+	height: 92.4vmin;
+	background-position: top center;
+	transition: all .5s ease-out;
+}
+
+.image-wrapper{
+	position: relative;
+	top: 0;
+	left: 0;
+			// backface-visibility: hidden;
+		}
+
+		.image-cont:hover .image-0, 
+		.image-cont:hover .image-1, 
+		.image-cont:hover .image-2, 
+		.image-cont:hover .image-3{
+
+			// transform: translateY(-5%) ;
+			// transition: transform .5s;
+			background-position: bottom;
+			transition:  .5s ;
+
+		}
+		.image-cont{
+			position: relative;
+			top: 0;
+		}
+
+		.image-wrapper:after{
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: rgba(0,0,0,.3);
+			display: block;
+			transition: opacity .3s;
+			cursor: pointer;
+		}
+
+		.image-cont:hover .image-wrapper:after{
+			opacity: 0;
+		}
+
+		.box-footer{
+			position: absolute;
+			bottom: 0;
+			left: 35%;
+			color: #fff;
+			z-index: 9;
+
+		}
+		.image-cont>a{
+			position: absolute;
+			right: 0;
+			z-index: 9;
+			transform: rotate(-90deg) translateY(-100%) translateX(0) translateZ(0);
+			transform-origin: top right;
+			top: 0;
+			border: 0px solid #002;
+			color: #fff;
+			background: #002;
+			min-width: 13.5vw;
+			padding: 1.7vw 4.6vw;
+			display: block;
+
+		}
+
+		.image-cont > a .inner-text2 {
+			position: absolute;
+			right: 29vmin;
+			transform-origin: top right;
+			top: -0.4vmin;
+			color: black;
+			background: #fff;
+			min-width: 14vw;
+			padding: 1.2vw 4.6vw;
+			overflow: hidden;
+			opacity: 0;
+			transition: all .5s;
+			display: block;
+		}
+
+		.image-cont:hover .inner-text2{
+			opacity: 1;
+			right: 0;
+			transition: .5s;
+			transform: translateX(0.8%);
+		}
+
+
+
+	// .image-cont>a:hover{
+	// 			background: #fff;
+	// 	}
+
+	.content-center{
+		display: flex; 
+		flex-direction: column; 
+		justify-content: center;
+	}
+	
+	/**** Hovered Class***/
